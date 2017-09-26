@@ -1,0 +1,435 @@
+//main styles
+.main-wrapper {
+    padding: 0 0 0 0;
+    min-width: $min-width;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+}
+
+.wrapper {
+    min-width: $min-width;
+    max-width: $max-width;
+    padding: 0 10px 0 10px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+
+/* titles */
+
+p {
+    @include font($base-font-size, $base-line-height, $text-color);
+    padding: 15px 0 15px 0;
+    font-weight: 400;
+}
+
+h1 {
+    @include font($font-size-h1, $line-height-h1, $title-color);
+    font-family: $title-font-family;
+    padding: 15px 0 15px 0;
+    font-weight: 400;
+}
+
+h2 {
+    @include font($font-size-h2, $line-height-h2, $title-color);
+    font-family: $title-font-family;
+    padding: 15px 0 15px 0;
+    font-weight: 400;
+}
+
+h3 {
+    @include font($font-size-h3, $line-height-h3, $title-color);
+    font-family: $title-font-family;
+    padding: 15px 0 15px 0;
+    font-weight: 400;
+}
+
+
+
+/* text position */
+
+.text-left {
+    text-align: left!important
+}
+
+.text-center {
+    text-align: center!important
+}
+
+.text-right {
+    text-align: right!important
+}
+
+.nowrap {
+    white-space: nowrap!important;
+}
+
+
+
+
+/* loader */
+
+.loaded .main-wrapper {
+    visibility: hidden;
+}
+
+.icon-load {
+    background: url(../img/loader.gif) no-repeat left top;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -20px;
+    margin-left: -20px;
+    display: none;
+}
+
+.loaded .icon-load {
+    display: block;
+}
+
+
+
+
+/*
+================================================================================
+|                                     CONTENT                                 |
+================================================================================
+*/
+
+.content {
+    min-width: 320px;
+    text-align: left;
+    width: 100%;
+    order: 2;
+    -webkit-order: 2;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+}
+
+.wrapper_slider {
+    max-width: 1375px;
+}
+
+.flexslider {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    .slides {
+        li {
+            width: 100%;
+            height: auto;
+            list-style-type: none;
+            display: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        li {
+            position: relative;
+        }
+    }
+
+    width: 100;
+    height: auto;
+}
+
+.flexslider-container {
+    position: relative;
+}
+
+/* Стиль заголовков */
+
+.flex-caption {
+    background: rgba(210, 166, 107, 0.88);
+    position: absolute;
+    left: 70px;
+    top: 50%;
+    height: 128px;
+    margin-top: -64px;
+}
+
+.flex-caption__text {
+    display: block;
+    font-size: 42px;
+    line-height: 48px;
+    color: #ffffff;
+    padding: 12px 50px 17px 30px;
+}
+
+/* Навигация */
+
+.flex-direction-nav {
+    display: block;
+
+    li {
+        list-style-type: none;
+
+        a {
+            width: 37px;
+            height: 128px;
+            margin: 0 0 0 0;
+            top: 50%;
+            margin-top: -64px;
+            display: block;
+            position: absolute;
+            background-color: rgba(210, 166, 107, 0.88);
+            padding-top: 50px;
+            cursor: pointer;
+            text-indent: -9999px;
+            font-size: 0px;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.88);
+            }
+
+            &:before {
+                display: block;
+                content: '';
+                width: 17px;
+                height: 30px;
+                background: url(../img/sprite.png) no-repeat left top;
+                margin: 0 auto;
+            }
+
+            &.flex-next {
+                right: 10px;
+                padding-left: 3px;
+            }
+
+            &.flex-prev {
+                left: 10px;
+                padding-right: 3px;
+            }
+
+            &.flex-next:before {
+                background-position: -200px 0;
+            }
+
+            &.flex-prev:before {
+                background-position: -173px 0;
+            }
+
+            &.flex-next:hover:before {
+                background-position: -200px -33px;
+            }
+
+            &.flex-prev:hover:before {
+                background-position: -173px -33px;
+            }
+        }
+    }
+}
+
+
+
+/* set negative margin-top equal to half the height on the directional-nav for perfect vertical centering */
+
+/* Управление */
+
+.flex-control-nav {
+    position: absolute;
+    left: 0;
+    bottom: -65px;
+    height: 18px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+
+    li {
+        margin: 0 9px 0 9px;
+        display: inline-block;
+        vertical-align: top;
+        list-style-type: none;
+
+        a {
+            display: block;
+            text-indent: -9999px;
+            margin-right: 0;
+            list-style-type: none;
+            background: #eedcc4;
+            display: block;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            font: 0px Arial;
+
+            &:hover {
+                background: #cb944c;
+            }
+
+            &.flex-active {
+                background: #cb944c;
+                cursor: default;
+            }
+        }
+    }
+}
+
+/* set negative margin-left equal to half the width on the control-nav for perfect centering */
+
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+    body {
+        min-height: 100hv;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .box-slider {
+        padding-bottom: 75px;
+    }
+
+    .flex-caption__text {
+        font-size: 38px;
+        line-height: 45px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .box-slider {
+        padding-bottom: 45px;
+    }
+
+    .flex-direction-nav li a {
+        width: 24px;
+        height: 70px;
+        margin-top: -35px;
+        padding-top: 25px;
+
+        &:before {
+            width: 10px;
+            height: 18px;
+            background-size: 216px 101px;
+            background-position: left top;
+        }
+
+        &.flex-next:before {
+            background-position: -120px 0;
+        }
+
+        &.flex-prev:before {
+            background-position: -104px 0;
+        }
+
+        &.flex-next:hover:before {
+            background-position: -120px -33px;
+        }
+
+        &.flex-prev:hover:before {
+            background-position: -104px -33px;
+        }
+    }
+
+    .flex-caption {
+        left: 38px;
+        height: 70px;
+        margin-top: -35px;
+    }
+
+    .flex-control-nav {
+        height: 10px;
+        bottom: -30px;
+
+        li a {
+            width: 10px;
+            height: 10px;
+        }
+    }
+
+    .flex-caption__text {
+        font-size: 22px;
+        line-height: 25px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .wrapper_slider {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .flex-direction-nav li a {
+        height: 28px;
+        width: 21px;
+        margin-top: -14px;
+        padding-top: 4px;
+
+        &.flex-prev {
+            left: 0px;
+        }
+
+        &.flex-next {
+            right: 0px;
+        }
+
+        &:before {
+            width: 9px;
+            height: 16px;
+            background-size: 194px 91px;
+            background-position: left top;
+        }
+
+        &.flex-next:before {
+            background-position: -108px 0;
+        }
+
+        &.flex-prev:before {
+            background-position: -94px 0;
+        }
+
+        &.flex-next:hover:before {
+            background-position: -108px -33px;
+        }
+
+        &.flex-prev:hover:before {
+            background-position: -94px -33px;
+        }
+    }
+
+    .flex-caption {
+        left: 30px;
+        height: 48px;
+        margin-top: -24px;
+    }
+
+    .flex-control-nav {
+        height: 10px;
+        bottom: -30px;
+        display: none;
+    }
+
+    .flex-caption__text {
+        font-size: 15px;
+        line-height: 18px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 20px;
+        padding-right: 30px;
+    }
+}
